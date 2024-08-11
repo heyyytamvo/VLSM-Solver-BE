@@ -42,4 +42,23 @@ public class VLSMController : ControllerBase
         var outputResponse = _vlsmService.getSubnets(inputUser);
         return Ok(outputResponse);
     }
+
+    [HttpGet("solve")]
+    public IActionResult Solver([FromBody] InputUser inputUser){
+        
+
+        try {
+            var output = _vlsmService.solver(inputUser);
+            return Ok(output);
+        }catch (FormatException ex)
+        {
+            // Handle the FormatException
+            return BadRequest($"Invalid ID format: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Handle any other exceptions
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while processing the request.");
+        }
+    }
 }
