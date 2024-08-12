@@ -43,7 +43,7 @@ public class VLSMController : ControllerBase
         return Ok(outputResponse);
     }
 
-    [HttpGet("solve")]
+    [HttpPost("solve")]
     public IActionResult Solver([FromBody] InputUser inputUser){
         
 

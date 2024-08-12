@@ -4,6 +4,11 @@ builder.Services.AddControllers();
 // Add the CustomerService to the dependency injection container
 // builder.Services.AddScoped<CustomerService>();
 var app = builder.Build();
+app.UseCors(builder =>
+        builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
 
 app.MapGet("/", () => "Hello World!");
 
