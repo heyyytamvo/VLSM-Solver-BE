@@ -2,7 +2,7 @@
 builder.Services.AddControllers();
 
 // Add the CustomerService to the dependency injection container
-// builder.Services.AddScoped<CustomerService>();
+builder.Services.AddScoped<VLSMService>();
 var app = builder.Build();
 app.UseCors(builder =>
         builder
